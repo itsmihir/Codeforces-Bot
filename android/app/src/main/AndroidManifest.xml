@@ -1,5 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bot.cf">
+    <queries>
+    <intent>
+        <action android:name="android.intent.action.TTS_SERVICE" />
+    </intent>
+
+    <intent>
+        <action android:name="TextToSpeech.Engine.INTENT_ACTION_TTS_SERVICE" />
+    </intent>
+</queries>
    <application
         android:label="CF Bot"
         android:icon="@mipmap/ic_launcher">

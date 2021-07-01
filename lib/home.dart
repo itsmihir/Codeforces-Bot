@@ -173,7 +173,7 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
       ),
       body: _isLoading
-          ? Text("Setting things up for you")
+          ? Center(child: CircularProgressIndicator())
           : Container(
               width: double.infinity,
               child: Column(

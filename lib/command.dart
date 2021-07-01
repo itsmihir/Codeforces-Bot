@@ -92,219 +92,275 @@ class _CommandSettingPageState extends State<CommandSettingPage> {
 
   @override
   Widget build(BuildContext context) {
+    final media = MediaQuery.of(context).size;
     return Scaffold(
         body: _isLoading
             ? Center(child: CircularProgressIndicator())
             : ListView(
                 children: [
                   SizedBox(height: 20),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(8, 8, 20, 8),
-                          child: Text("Accepted : "),
-                        ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 8, 20, 8),
+                        child: Text("Accepted : "),
+                      ),
+                      if (media.width > 600)
                         Expanded(
                           child: TextField(
                             controller: accepted,
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 20),
-                          child: ElevatedButton(
-                              onPressed: () {
-                                _speak(DecodedVoice(dummy)
-                                    .getCommand(accepted.text));
-                              },
-                              child: Text("Try")),
-                        )
-                      ],
-                    ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 20),
+                        child: ElevatedButton(
+                            onPressed: () {
+                              _speak(DecodedVoice(dummy)
+                                  .getCommand(accepted.text));
+                            },
+                            child: Text("Try")),
+                      )
+                    ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(8, 8, 20, 8),
-                          child: Text("Pretest Passed : "),
-                        ),
+                    padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
+                    child: media.width > 600
+                        ? Container()
+                        : TextField(
+                            controller: accepted,
+                          ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 8, 20, 8),
+                        child: Text("Pretest Passed : "),
+                      ),
+                      if (media.width > 600)
                         Expanded(
                           child: TextField(
                             controller: partial,
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 20),
-                          child: ElevatedButton(
-                              onPressed: () {
-                                _speak(DecodedVoice(dummy)
-                                    .getCommand(partial.text));
-                              },
-                              child: Text("Try")),
-                        )
-                      ],
-                    ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 20),
+                        child: ElevatedButton(
+                            onPressed: () {
+                              _speak(
+                                  DecodedVoice(dummy).getCommand(partial.text));
+                            },
+                            child: Text("Try")),
+                      )
+                    ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(8, 8, 20, 8),
-                          child: Text("Wrong Answer : "),
-                        ),
+                    padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
+                    child: media.width > 600
+                        ? Container()
+                        : TextField(
+                            controller: partial,
+                          ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 8, 20, 8),
+                        child: Text("Wrong Answer : "),
+                      ),
+                      if (media.width > 600)
                         Expanded(
                           child: TextField(
                             controller: wrong,
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 20),
-                          child: ElevatedButton(
-                              onPressed: () {
-                                _speak(
-                                    DecodedVoice(dummy).getCommand(wrong.text));
-                              },
-                              child: Text("Try")),
-                        )
-                      ],
-                    ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 20),
+                        child: ElevatedButton(
+                            onPressed: () {
+                              _speak(
+                                  DecodedVoice(dummy).getCommand(wrong.text));
+                            },
+                            child: Text("Try")),
+                      )
+                    ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(8, 8, 20, 8),
-                          child: Text("TLE : "),
-                        ),
+                    padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
+                    child: media.width > 600
+                        ? Container()
+                        : TextField(
+                            controller: wrong,
+                          ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 8, 20, 8),
+                        child: Text("TLE : "),
+                      ),
+                      if (media.width > 600)
                         Expanded(
                           child: TextField(
                             controller: time,
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 20),
-                          child: ElevatedButton(
-                              onPressed: () {
-                                _speak(
-                                    DecodedVoice(dummy).getCommand(time.text));
-                              },
-                              child: Text("Try")),
-                        )
-                      ],
-                    ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 20),
+                        child: ElevatedButton(
+                            onPressed: () {
+                              _speak(DecodedVoice(dummy).getCommand(time.text));
+                            },
+                            child: Text("Try")),
+                      )
+                    ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(8, 8, 20, 8),
-                          child: Text("MLE : "),
-                        ),
+                    padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
+                    child: media.width > 600
+                        ? Container()
+                        : TextField(
+                            controller: time,
+                          ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 8, 20, 8),
+                        child: Text("MLE : "),
+                      ),
+                      if (media.width > 600)
                         Expanded(
                           child: TextField(
                             controller: memory,
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 20),
-                          child: ElevatedButton(
-                              onPressed: () {
-                                _speak(DecodedVoice(dummy)
-                                    .getCommand(memory.text));
-                              },
-                              child: Text("Try")),
-                        )
-                      ],
-                    ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 20),
+                        child: ElevatedButton(
+                            onPressed: () {
+                              _speak(
+                                  DecodedVoice(dummy).getCommand(memory.text));
+                            },
+                            child: Text("Try")),
+                      )
+                    ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(8, 8, 20, 8),
-                          child: Text("Runtime Error : "),
-                        ),
+                    padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
+                    child: media.width > 600
+                        ? Container()
+                        : TextField(
+                            controller: memory,
+                          ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 8, 20, 8),
+                        child: Text("Runtime Error : "),
+                      ),
+                      if (media.width > 600)
                         Expanded(
                           child: TextField(
                             controller: runtime,
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 20),
-                          child: ElevatedButton(
-                              onPressed: () {
-                                _speak(DecodedVoice(dummy)
-                                    .getCommand(runtime.text));
-                              },
-                              child: Text("Try")),
-                        )
-                      ],
-                    ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 20),
+                        child: ElevatedButton(
+                            onPressed: () {
+                              _speak(
+                                  DecodedVoice(dummy).getCommand(runtime.text));
+                            },
+                            child: Text("Try")),
+                      )
+                    ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(8, 8, 20, 8),
-                          child: Text("Compilation Error : "),
-                        ),
+                    padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
+                    child: media.width > 600
+                        ? Container()
+                        : TextField(
+                            controller: runtime,
+                          ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 8, 20, 8),
+                        child: Text("Compilation Error : "),
+                      ),
+                      if (media.width > 600)
                         Expanded(
                           child: TextField(
                             controller: compile,
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 20),
-                          child: ElevatedButton(
-                              onPressed: () {
-                                _speak(DecodedVoice(dummy)
-                                    .getCommand(compile.text));
-                              },
-                              child: Text("Try")),
-                        )
-                      ],
-                    ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 20),
+                        child: ElevatedButton(
+                            onPressed: () {
+                              _speak(
+                                  DecodedVoice(dummy).getCommand(compile.text));
+                            },
+                            child: Text("Try")),
+                      )
+                    ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(8, 8, 20, 8),
-                          child: Text("Other : "),
-                        ),
+                    padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
+                    child: media.width > 600
+                        ? Container()
+                        : TextField(
+                            controller: compile,
+                          ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 8, 20, 8),
+                        child: Text("Other : "),
+                      ),
+                      if (media.width > 600)
                         Expanded(
                           child: TextField(
                             controller: other,
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 20),
-                          child: ElevatedButton(
-                              onPressed: () {
-                                _speak(
-                                    DecodedVoice(dummy).getCommand(other.text));
-                              },
-                              child: Text("Try")),
-                        )
-                      ],
-                    ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 20),
+                        child: ElevatedButton(
+                            onPressed: () {
+                              _speak(
+                                  DecodedVoice(dummy).getCommand(other.text));
+                            },
+                            child: Text("Try")),
+                      )
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
+                    child: media.width > 600
+                        ? Container()
+                        : TextField(
+                            controller: other,
+                          ),
                   ),
                   SizedBox(height: 30),
                   Row(

@@ -13,20 +13,20 @@ class User with ChangeNotifier {
     }
     if (prefs.getString("accepted") == null) {
       await prefs.setString(
-          "accepted", "Solution Accepted, for Problem {index}");
-      await prefs.setString("partial", "Pretest Passed, for Problem {index}");
+          "accepted", "Solution Accepted, for Problem {index}.");
+      await prefs.setString("partial", "Pretest Passed, for Problem {index}.");
       await prefs.setString("time",
-          "TIME LIMIT EXCEEDED on test {passedTestCount+1}, took {timeConsumedMillis} Milliseconds, for Problem {index}");
+          "TIME LIMIT EXCEEDED on test {passedTestCount+1}, took {timeConsumedMillis} Milliseconds, for Problem {index}.");
       await prefs.setString("memory",
-          "MEMORY LIMIT EXCEEDED on test {passedTestCount+1}, took {memoryConsumedBytes/1000000} Mb, for Problem {index}");
+          "MEMORY LIMIT EXCEEDED on test {passedTestCount+1}, took {memoryConsumedBytes/1000000} Mb, for Problem {index}.");
       await prefs.setString("wrong",
-          "WRONG ANSWER on test {passedTestCount}, for Problem {index}");
+          "WRONG ANSWER on test {passedTestCount+1}, for Problem {index}.");
       await prefs.setString("runtime",
-          "RUNTIME ERROR on test {passedTestCount+1}, for Problem {index}");
+          "RUNTIME ERROR on test {passedTestCount+1}, for Problem {index}.");
       await prefs.setString("compile",
-          "COMPILATION ERROR on test {passedTestCount+1}, for Problem {index}");
+          "COMPILATION ERROR on test {passedTestCount+1}, for Problem {index}.");
       await prefs.setString("other",
-          "{verdict} on test {passedTestCount+1}, for Problem {index}");
+          "{verdict} on test {passedTestCount+1}, for Problem {index}.");
     }
   }
 

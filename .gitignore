@@ -32,6 +32,7 @@
 /build/
 
 web/firebaseInit.js
+android/app/google-services.json
 
 # Web related
 lib/generated_plugin_registrant.dart

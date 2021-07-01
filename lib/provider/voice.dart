@@ -21,9 +21,9 @@ class DecodedVoice {
           val += verdict.index;
         else if (cur == "name")
           val += verdict.name;
-        else if (cur == "verdict")
-          val += verdict.verdict;
-        else
+        else if (cur == "verdict") {
+          val += verdict.verdict.replaceAll('_', ' ');
+        } else
           val += evaluate(cur);
       } else
         val += text[i];
