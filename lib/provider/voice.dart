@@ -63,7 +63,10 @@ class DecodedVoice {
       case '*':
         return a * b;
       case '/':
-        return a ~/ b;
+        {
+          if (b == 0) return 0;
+          return a ~/ b;
+        }
     }
     return 0;
   }
@@ -161,7 +164,6 @@ class DecodedVoice {
           s += tokens[i];
           i++;
         }
-        print(s);
         if (s == "passedTestCount")
           values.add(verdict.passedTestCount);
         else if (s == "timeConsumedMillis")
@@ -173,7 +175,6 @@ class DecodedVoice {
         i--;
       }
     }
-    print("done");
     // Entire expression has been parsed at this
     // point, apply remaining ops to remaining
     // values.

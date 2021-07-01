@@ -326,9 +326,9 @@ class _CommandSettingPageState extends State<CommandSettingPage> {
                                             onPressed: () {
                                               Navigator.of(context).pop();
                                             },
-                                            child: Text("ok"))
+                                            child: Text("Ok"))
                                       ],
-                                      content: Text(
+                                      content: SelectableText(
                                           "Variables\n\n - index : String. Usually, a letter or letter with digit(s) indicating the problem index in a contest\n\n - name : String. Problem Title.\n\n - verdict : String. Verdict of the submission.\n\n - passedTestCount : Integer. Number of passed tests.\n\n - timeConsumedMillis : Integer. Maximum time in milliseconds, consumed by solution for one test.\n\n - memoryConsumedBytes : Integer. Maximum memory in bytes, consumed by solution for one test.\n\n\n Note\n\n - You Can only use only one variable in one {}/block."),
                                     );
                                   });

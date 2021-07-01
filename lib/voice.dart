@@ -13,6 +13,7 @@ class _VoiceSettingPageState extends State<VoiceSettingPage> {
   bool _isLoading = true;
   double pitch = 0.5, volume = 0, speechRate = 0;
   double pitchOld = 0.5, volumeOld = 0, speechRateOld = 0;
+  String command = "Solution accepted for problem A. CF Bot";
   Future<void> _speak(String text) async {
     await flutterTts.speak(text);
   }
@@ -115,7 +116,7 @@ class _VoiceSettingPageState extends State<VoiceSettingPage> {
                         flutterTts.setVolume(volume),
                         flutterTts.setPitch(pitch),
                       ]);
-                      await _speak("Solution Accepted for Problem A. Sir");
+                      await _speak(command);
                     },
                     child: Text("Speak")),
                 SizedBox(height: 30),
