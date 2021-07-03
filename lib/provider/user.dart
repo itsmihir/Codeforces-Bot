@@ -14,7 +14,6 @@ class User with ChangeNotifier {
     if (prefs.getString("accepted") == null) {
       await prefs.setString(
           "accepted", "Solution Accepted, for Problem {index}.");
-      await prefs.setString("partial", "Pretest Passed, for Problem {index}.");
       await prefs.setString("time",
           "TIME LIMIT EXCEEDED on test {passedTestCount+1}, took {timeConsumedMillis} Milliseconds, for Problem {index}.");
       await prefs.setString("memory",

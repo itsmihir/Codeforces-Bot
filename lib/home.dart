@@ -28,7 +28,6 @@ class _HomePageState extends State<HomePage> {
 
   void updateCommand(prefs) {
     commands["accepted"] = prefs.getString("accepted");
-    commands["partial"] = prefs.getString("partial");
     commands["time"] = prefs.getString("time");
     commands["wrong"] = prefs.getString("wrong");
     commands["memory"] = prefs.getString("memory");
@@ -43,11 +42,6 @@ class _HomePageState extends State<HomePage> {
       case "OK":
         {
           text = commands["accepted"];
-          break;
-        }
-      case "PARTIAL":
-        {
-          text = commands["partial"];
           break;
         }
       case "TIME_LIMIT_EXCEEDED":

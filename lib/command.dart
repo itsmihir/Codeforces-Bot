@@ -21,7 +21,6 @@ class _CommandSettingPageState extends State<CommandSettingPage> {
   FlutterTts flutterTts;
   SharedPreferences prefs;
   TextEditingController accepted = new TextEditingController();
-  TextEditingController partial = new TextEditingController();
   TextEditingController time = new TextEditingController();
   TextEditingController wrong = new TextEditingController();
   TextEditingController memory = new TextEditingController();
@@ -36,9 +35,6 @@ class _CommandSettingPageState extends State<CommandSettingPage> {
     String errors = "";
 
     String res = DecodedVoice(dummy).validate(accepted.text);
-    if (res != "OK") errors += res + "\n";
-
-    res = DecodedVoice(dummy).validate(partial.text);
     if (res != "OK") errors += res + "\n";
 
     res = DecodedVoice(dummy).validate(time.text);
@@ -75,7 +71,6 @@ class _CommandSettingPageState extends State<CommandSettingPage> {
       ]);
 
       accepted.text = prefs.getString("accepted");
-      partial.text = prefs.getString("partial");
       time.text = prefs.getString("time");
       wrong.text = prefs.getString("wrong");
       memory.text = prefs.getString("memory");
@@ -130,39 +125,6 @@ class _CommandSettingPageState extends State<CommandSettingPage> {
                         ? Container()
                         : TextField(
                             controller: accepted,
-                          ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(10, 8, 20, 8),
-                        child: Text("Pretest Passed : "),
-                      ),
-                      if (media.width > 600)
-                        Expanded(
-                          child: TextField(
-                            controller: partial,
-                          ),
-                        ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 10, horizontal: 20),
-                        child: ElevatedButton(
-                            onPressed: () {
-                              _speak(
-                                  DecodedVoice(dummy).getCommand(partial.text));
-                            },
-                            child: Text("Try")),
-                      )
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
-                    child: media.width > 600
-                        ? Container()
-                        : TextField(
-                            controller: partial,
                           ),
                   ),
                   Row(
@@ -415,7 +377,6 @@ class _CommandSettingPageState extends State<CommandSettingPage> {
 
                               await Future.wait([
                                 prefs.setString("accepted", accepted.text),
-                                prefs.setString("partial", partial.text),
                                 prefs.setString("time", time.text),
                                 prefs.setString("wrong", wrong.text),
                                 prefs.setString("memory", memory.text),
